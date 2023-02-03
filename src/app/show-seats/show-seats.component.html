@@ -1,0 +1,13 @@
+<div class="status x" style="display: flex; margin: auto;">
+    <div class="unselected" style="width: 60px; margin-left: 10px; margin-right: 1%;">Available</div>
+    <div class="booked" style="width: 60px; margin-left: 10px; margin-right: 1%;">Booked</div>
+</div>
+
+<br><br>
+
+<div class="container grid-1">
+    <div class="x" *ngFor="let seat of seats">
+        <div class="unselected" *ngIf="!seat.active && !seat.booked" >{{seat.y}} , {{seat.x}}</div>
+        <div class="booked" *ngIf="seat.booked">{{seat.y}} , {{seat.x}} </div>
+    </div>
+</div>

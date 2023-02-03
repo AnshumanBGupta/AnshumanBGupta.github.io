@@ -1,0 +1,30 @@
+<div class="status x" style="display: flex; margin: auto;">
+    <div class="unselected" style="width: 60px; margin-left: 10px; margin-right: 1%;">Available</div>
+    <div class="booked" style="width: 60px; margin-left: 10px; margin-right: 1%;">Booked</div>
+    <div class="selected" style="width: 60px; margin-left: 10px; margin-right: 1%;">Selected</div>
+    <button class="btn" *ngIf="seatSelected" (click)="bookSeats()" routerLink="../" style="font-size: 15px; font-weight: 700;">Confirm Booking</button>
+</div>
+
+<br><br>
+
+<div class="container grid-1">
+    <div class="x" *ngFor="let seat of seats">
+        <div class="unselected" *ngIf="!seat.active && !seat.booked" (click)="Select(seat)">{{seat.y}} , {{seat.x}}</div>
+        <div class="selected" *ngIf="seat.active && !seat.booked" (click)="deSelect(seat)">{{seat.y}} , {{seat.x}} </div>
+        <div class="booked" *ngIf="seat.booked" (click)="alert(seat.x,seat.y)">{{seat.y}} , {{seat.x}} </div>
+    </div>
+</div>
+
+<br>
+
+
+<div id="main1" *ngIf="popupStatus">
+    <div class="pop-up">
+        <h1>How many seats to Book ?</h1>
+        <br>
+        <div *ngFor="let no of noOfSeat" style="display:inline">
+        <button class="btn1" (click)="closePopup(no)">{{no}}</button>
+        </div>
+    </div>
+    <button class="btn" routerLink="../" (click)="changeStatus()">Back</button>
+</div>

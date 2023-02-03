@@ -1,0 +1,20 @@
+<br>
+
+<header class="header">
+    <button class="btn" (click)="changeStatus()" *ngIf="!getStatus()" routerLink="/bookSeats">Book Seats</button>
+    <button class="btn" (click)="changeStatus()" *ngIf="getStatus()" routerLink="./../">Home</button>
+    <button class="btn" (click)="showSeats()" *ngIf="!getStatus()" routerLink="/showSeats">Show Available Seats</button>
+</header>
+
+<br><br>
+<div class="welcome f1" *ngIf="!getStatus()"><div>SEAT BOOKING FOR SPECIAL EXPRESS</div></div>
+
+<router-outlet></router-outlet>
+
+<br><br>
+
+<footer class="footer" style="display: grid; grid-template-columns: 45% 45%;">
+    <h3>Created By: Anshuman B Gupta</h3>
+    <h3>Email: abg040799@gmail.com</h3>
+</footer>
+<br>
