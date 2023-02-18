@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
 
   changeStatus(){
     this.sss.changeBookingMode();
+    this.deSelect(this.sss.oldSeat);
   }
 
   getStatus(): boolean{
@@ -33,4 +34,21 @@ export class AppComponent implements OnInit{
     this.changeStatus();
   }
 
+  deSelect(seat:{x:Number,y:String,active:Boolean,booked:Boolean}){
+
+    var no = this.sss.selectedNo 
+
+    while( no > 0 ){
+      if(!this.seats[this.sss.oldIndex].booked){          
+        this.seats[this.sss.oldIndex].active = false;
+        no = no - 1;
+      }
+      this.sss.oldIndex = (this.sss.oldIndex + 1) % 80;
+    }
+
+    // seat.active = false;
+    // this.seatSelected = false
+    console.log(`${seat.x} seat of ${seat.y} row is selected ${seat.active}`)
+    console.log(seat)
+  }
 }

@@ -20,7 +20,9 @@ export class BookSeatsComponent implements OnInit {
 
   closePopup( no:Number){
 
+    //counting total no of available seats
     var count =0 ;
+
     for( var i=0; i< this.totalSeats; i++){
       if (this.seats[i].booked == false){
         count = count +1;
@@ -28,6 +30,7 @@ export class BookSeatsComponent implements OnInit {
     }
     
     this.selectedNo = no;
+    this.sss.selectedNo = no;
 
     if (count >= this.selectedNo ){
       this.popupStatus = false;
@@ -88,6 +91,7 @@ export class BookSeatsComponent implements OnInit {
     console.log(this.seats[this.index])
     this.oldSeat = seat;
     this.index = this.sss.findIndex(seat.x,seat.y)
+    this.sss.oldIndex = this.index;
   }
 
   deSelect(seat:{x:Number,y:String,active:Boolean,booked:Boolean}){
@@ -124,8 +128,6 @@ export class BookSeatsComponent implements OnInit {
     }
 
     alert('Seat booking sucessfull, Thankyou for using our services')
-
-    this.changeStatus()
 
   };
 

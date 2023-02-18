@@ -512,4 +512,11 @@ export class SharedServicesService {
     this.showSeatStatus = true;
   }
 
+  oldIndex : any;
+
+  selectedNo : any;
+
+  oldSeat : any;
+
 }
+
